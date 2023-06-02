@@ -96,9 +96,9 @@ jobs:
     steps:
       - name: Create tar file from Docker image
         run: |
-          docker save -o image.tar ghcr.io/nagesh9890/jenkins:1f0e917c90595a7aebbc2d945a87bdd6c032b316
+        
+          docker save -o image.tar ghcr.io/nagesh9890/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      
       - name: Push tar file to the same directory
         uses: actions/upload-artifact@v2
         with:
